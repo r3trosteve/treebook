@@ -1,25 +1,31 @@
-<h1>Listing statuses</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <div class="page-header">
+    <h1>Treebook Statuses</h1>
+  </div>
+  
+  <% @statuses.each do |status| %>
+  <div class="row">
+    <article class="status">
+      <img class="user-img col-sm-1 col-md-1" src="http://placehold.it/70x70">
+      <h2 class="col-sm-7 col-md-7"><%= status.name %></h2>
+      <p class ="time col-sm-4 col-md-4"><%= link_to time_ago_in_words(status.created_at) + " ago", status %></p>
+      <p><%= status.content %></p>
+      <div class="row">
+        <div class="meta col-sm-7 col-sm-offset-1 col-md-7 col-md-offset-1">   
+          <span class="admin">
+            <%= link_to "Edit", edit_status_path(status) %> |
+            <%= link_to "Delete", status, method: :delete, data: { confirm: "Are you sure? This can't be undid. Undoned. Undidded."} %>
+          </span>
+        </div>
+      </div>
+  </div>
+      
+      
+     
+      
+    </article>
+  <% end %>
 
-<% @statuses.each do |status| %>
-  <tr>
-    <td><%= status.name %></td>
-    <td><%= status.content %></td>
-    <td><%= link_to 'Show', status %></td>
-    <td><%= link_to 'Edit', edit_status_path(status) %></td>
-    <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+  <br />
 
-<br />
 
-<%= link_to 'New Status', new_status_path %>
