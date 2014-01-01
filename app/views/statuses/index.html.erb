@@ -7,7 +7,7 @@
   <div class="row">
     <article class="status">
       <img class="user-img col-sm-1 col-md-1" src="http://placehold.it/70x70">
-      <h2 class="col-sm-7 col-md-7"><%= status.name %></h2>
+      <h2 class="col-sm-7 col-md-7"><%= status.user.full_name %><span class="username">@<%= status.user.profile_name %></span></h2>
       <p class ="time col-sm-4 col-md-4"><%= link_to time_ago_in_words(status.created_at) + " ago", status %></p>
       <p><%= status.content %></p>
       <div class="row">
