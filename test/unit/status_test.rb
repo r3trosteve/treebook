@@ -7,10 +7,17 @@ class StatusTest < ActiveSupport::TestCase
   	assert !status.errors[:content].empty?
   end
 
-  test "that a status content is at lest 2 letters" do 
+  test "that a status content is at least 2 letters" do 
   	status = Status.new
   	status.content = "H"
   	assert !status.save
   	assert !status.errors[:content].empty?
+  end
+
+  test "that status has a user id" do
+  	status = Status.new
+  	status.content = "hello"
+  	assert !status.save
+  	assert !status.errors[:user_id].empty?
   end
 end
