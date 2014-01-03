@@ -9,3 +9,9 @@ rudi:
   last_name: "Schofield"
   email: "rudi@email.com"
   profile_name: "rudibrook"
+
+mike:
+  first_name: "Mike"	
+  last_name: "The Frog"
+  email: "mike@email.com"
+  profile_name: "mikethefrog"
