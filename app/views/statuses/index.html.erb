@@ -7,9 +7,9 @@
   <div class="row">
     <article class="status">
       <div class="col-sm-1 col-md-1">
-        <%= image_tag status.user.gravatar_url, :class => 'user-img' %>
+        <%= link_to image_tag(status.user.gravatar_url), profile_path(status.user), :class => 'user-img' %>
       </div>
-      <h2 class="col-sm-7 col-md-7"><%= status.user.full_name %><span class="username"><%= link_to "@" + status.user.profile_name, profiles_show_path %></span></h2>
+      <h2 class="col-sm-7 col-md-7"><%= status.user.full_name %><span class="username"><%= link_to "@" + status.user.profile_name, profile_path(status.user) %></span></h2>
       <p class ="time col-sm-4 col-md-4"><%= link_to time_ago_in_words(status.created_at) + " ago", status %></p>
       <p><%= status.content %></p>
       <div class="row">
